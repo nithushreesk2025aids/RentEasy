@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RentEasy - PG Rent Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div>
+        <div class="logo">RentEasy</div>
+        <div class="subtitle">PG / Hostel Rent Management</div>
+    </div>
+
+</header>
+
+
+<div class="container">
+
+    <h1>Dashboard</h1>
+
+
+    <!-- ================= DASHBOARD CARDS ================= -->
+
+    <div class="dashboard">
+
+        <div class="card">
+            <h3>Total Rooms</h3>
+            <p id="totalRooms">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Occupied Rooms</h3>
+            <p id="occupiedRooms">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Available Rooms</h3>
+            <p id="availableRooms">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Active Tenants</h3>
+            <p id="activeTenants">0</p>
+        </div>
+
+    </div>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <div class="menu">
+
+        <button onclick="showSection('rooms')">
+            Rooms
+        </button>
+
+        <button onclick="showSection('tenants')">
+            Tenants
+        </button>
+
+        <button onclick="showSection('payments')">
+            Payments
+        </button>
+
+        <button onclick="showSection('dues')">
+            Pending Dues
+        </button>
+
+    </div>
+
+
+    <!-- ================= REGISTER TENANT ================= -->
+
+    <section class="form-section">
+
+        <h2>Register Tenant</h2>
+
+        <form id="tenantForm">
+
+            <div class="form-group">
+
+                <label>Tenant Name</label>
+
+                <input
+                        type="text"
+                        id="tenantName"
+                        placeholder="Enter tenant name"
+                        required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Phone</label>
+
+                <input
+                        type="text"
+                        id="tenantPhone"
+                        placeholder="Enter phone number"
+                        required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Room ID</label>
+
+                <input
+                        type="number"
+                        id="tenantRoomId"
+                        placeholder="Example: 1"
+                        required
+                >
+
+            </div>
+
+
+            <button type="submit" class="primary-btn">
+                Register Tenant
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- ================= RECORD PAYMENT ================= -->
+
+    <section class="form-section">
+
+        <h2>Record Rent Payment</h2>
+
+        <form id="paymentForm">
+
+            <div class="form-group">
+
+                <label>Tenant ID</label>
+
+                <input
+                        type="number"
+                        id="paymentTenantId"
+                        placeholder="Example: 7"
+                        required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Amount</label>
+
+                <input
+                        type="number"
+                        id="paymentAmount"
+                        placeholder="Example: 5000"
+                        required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Month</label>
+
+                <input
+                        type="month"
+                        id="paymentMonth"
+                        required
+                >
+
+            </div>
+
+
+            <button type="submit" class="primary-btn">
+                Record Payment
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- ================= VACATE TENANT ================= -->
+
+    <section class="form-section">
+
+        <h2>Vacate Tenant</h2>
+
+        <form id="vacateForm">
+
+            <div class="form-group">
+
+                <label>Tenant ID</label>
+
+                <input
+                        type="number"
+                        id="vacateTenantId"
+                        placeholder="Example: 7"
+                        required
+                >
+
+            </div>
+
+
+            <button type="submit" class="danger-btn">
+                Vacate Tenant
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- ================= ROOMS ================= -->
+
+    <section id="rooms" class="section">
+
+        <h2>Rooms</h2>
+
+        <div id="roomsList">
+            Loading rooms...
+        </div>
+
+    </section>
+
+
+    <!-- ================= TENANTS ================= -->
+
+    <section id="tenants" class="section hidden">
+
+        <h2>Tenants</h2>
+
+        <div id="tenantsList">
+            Loading tenants...
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAYMENTS ================= -->
+
+    <section id="payments" class="section hidden">
+
+        <h2>Payments</h2>
+
+        <div id="paymentsList">
+            Loading payments...
+        </div>
+
+    </section>
+
+
+    <!-- ================= PENDING DUES ================= -->
+
+    <section id="dues" class="section hidden">
+
+        <h2>Current Month Unpaid Tenants</h2>
+
+        <div id="duesList">
+            Loading...
+        </div>
+
+    </section>
+
+
+    <!-- ================= MESSAGE ================= -->
+
+    <div id="message"></div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
